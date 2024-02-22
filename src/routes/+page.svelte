@@ -8,7 +8,19 @@
       name: 
 	  	'Avocado Pesto Salad',
       description: 
-	  	'Home-grown vegetables with loads of avocado, topped with mouthwatering pesto salad'
+	  	'Home-grown vegetables with loads of avocado, topped with mouthwatering pesto salad',
+	  prices: [
+		{
+			label: '',
+			price: 35
+
+		},
+		{
+			label: '+ Grilled Salmon',
+			price: 55
+
+		}
+	]
   
     },
     {
@@ -17,7 +29,19 @@
       name: 
 		  'Triple Cheese Pizza',
       description: 
-	  	'Indulge yourself in this simple yet delicious delicacy'
+	  	'Indulge yourself in this simple yet delicious delicacy',
+	  prices: [
+		{
+			label: '1 slice',
+			price: 15
+
+		},
+		{
+			label: 'Pan (6 slices)',
+			price: 60
+
+		}
+	]
   
     },
     {
@@ -26,8 +50,20 @@
       name: 
 	  	'Seasonal Wine',
       description: 
-	  	'A great meal becomes perfect when combined with a good wine'
-    
+	  	'A great meal becomes perfect when combined with a good wine',
+	  prices: [
+		{
+			label: 'Glass',
+			price: 100
+
+		},
+		{
+			label: 'Bottle',
+			price: 1500
+
+		}
+	]
+
     },
     {
       photoUrl: 
@@ -35,7 +71,19 @@
       name:
 	  	'Coffee',
       description: 
-	  	'The best coffee you can have from the land of Indonesia'
+	  	'The best coffee you can have from the land of Indonesia',
+	  prices: [
+		{
+			label: 'Americano',
+			price: 25
+
+		},
+		{
+			label: 'Latte',
+			price: 30
+
+		}
+	]
     }
   ]; 
 </script>
