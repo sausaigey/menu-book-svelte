@@ -1,7 +1,10 @@
 <script lang="ts">
+	/**TODO: 3. Import MenuPrice */
+	import MenuPrice from "./MenuPrice.svelte";
 	export let name: string;
 	export let description: string;
 	export let photoUrl: string;
+	export let prices: {label:string; price:number}[];
 </script>
 
 <div class="menu-tile">
@@ -12,6 +15,15 @@
 	<div class="menu-tile-description">
 		{description}
 	</div>
+	<!--TODO: 4. Use each to render MenuPrice 
+		https://learn.svelte.dev/tutorial/each-blocks -->
+	
+		<div>
+			{#each prices as prices}
+			<MenuPrice label={prices.label} price={prices.price} />
+			{/each}
+		</div>
+
 	<!-- <div class="menu-price-row">
       <span class="price-description"></span>
       <span>35</span>
@@ -51,17 +63,5 @@
 		padding: 0px 16px;
 		height: 60px;
 		padding-bottom: 16px;
-	}
-
-	div.menu-price-row {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 16px;
-	}
-
-	span.price-description {
-		font-size: 12px;
 	}
 </style>
