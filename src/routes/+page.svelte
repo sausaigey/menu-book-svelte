@@ -70,29 +70,30 @@
 	];
 </script>
 
-<body>
-	<div class="appbar">Kongkow Cafe</div>
-	<div class="hero">
-		<img
-			src="https://cdn.themistakenman.com/wp-content/uploads/2022/08/fast-food-business.webp"
-			alt="hero"
+<div class="appbar">Kongkow Cafe</div>
+<div class="hero">
+	<img
+		src="https://cdn.themistakenman.com/wp-content/uploads/2022/08/fast-food-business.webp"
+		alt="hero"
+	/>
+</div>
+<div class="header-text">
+	<div class="tagline">Friends, Food, Fun</div>
+	<div class="document-title">Kongkow Cafe Menu 2023</div>
+	<div class="price-note">All prices are in thousand rupiah</div>
+</div>
+<div class="menu-area">
+	{#each menus as menu}
+		<MenuTile
+			photoUrl={menu.photoUrl}
+			name={menu.name}
+			description={menu.description}
+			prices={menu.prices}
 		/>
-	</div>
-	<div class="header-text">
-		<div class="tagline">Friends, Food, Fun</div>
-		<div class="document-title">Kongkow Cafe Menu 2023</div>
-		<div class="price-note">All prices are in thousand rupiah</div>
-	</div>
-	<div class="menu-area">
-		{#each menus as menu}
-			<MenuTile photoUrl={menu.photoUrl} name={menu.name} description={menu.description} prices={menu.prices}/>
-		{/each}
-	</div>
-</body>
+	{/each}
+</div>
 
 <style>
-	/** CSS Reset */
-
 	div.appbar {
 		display: flex;
 		flex-direction: row;

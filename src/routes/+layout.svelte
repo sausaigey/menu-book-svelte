@@ -12,7 +12,8 @@
 <slot />
 
 <style>
-    *,
+	/** CSS Reset */
+	*,
 	:global(html),
 	:global(body) {
 		font-family: 'Barlow';
@@ -21,7 +22,7 @@
 		color: #424242;
 	}
 
-/*** body {
+	:global(body) {
 		background-color: white;
-	} */
+	}
 </style>
