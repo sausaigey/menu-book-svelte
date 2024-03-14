@@ -70,17 +70,6 @@
 	];
 </script>
 
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&display=swap"
-		rel="stylesheet"
-	/>
-</head>
-
 <body>
 	<div class="appbar">Kongkow Cafe</div>
 	<div class="hero">
@@ -103,17 +92,6 @@
 
 <style>
 	/** CSS Reset */
-	*,
-	body {
-		font-family: 'Barlow';
-		margin: 0;
-		padding: 0;
-		color: #424242;
-	}
-
-	body {
-		background-color: white;
-	}
 
 	div.appbar {
 		display: flex;
