@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { coffeeCounter, pizzaCounter, saladCounter, wineCounter } from '$lib/store/order';
+	import { order } from '$lib/store/order';
 	import MenuPrice from './MenuPrice.svelte';
 
 	export let id: string;
@@ -8,51 +8,15 @@
 	export let photoUrl: string;
 	export let prices: { label: string; price: number }[];
 
-	$: counter =
-		id === 'salad'
-			? $saladCounter
-			: id === 'pizza'
-				? $pizzaCounter
-				: id === 'wine'
-					? $wineCounter
-					: id === 'coffee'
-						? $coffeeCounter
-						: 0;
+	$: counter = $order[id] ?? 0;
 
 	const add = () => {
-		if (id === 'salad') {
-			saladCounter.update((n) => n + 1);
-		} else if (id === 'pizza') {
-			pizzaCounter.update((n) => n + 1);
-		} else if (id === 'wine') {
-			wineCounter.update((n) => n + 1);
-		} else if (id === 'coffee') {
-			coffeeCounter.update((n) => n + 1);
-		}
+		$order[id] = counter + 1;
 	};
 
 	const substract = () => {
-		if (id === 'salad') {
-			saladCounter.update((n) => {
-				if (n <= 0) return n;
-				return n - 1;
-			});
-		} else if (id === 'pizza') {
-			pizzaCounter.update((n) => {
-				if (n <= 0) return n;
-				return n - 1;
-			});
-		} else if (id === 'wine') {
-			wineCounter.update((n) => {
-				if (n <= 0) return n;
-				return n - 1;
-			});
-		} else if (id === 'coffee') {
-			coffeeCounter.update((n) => {
-				if (n <= 0) return n;
-				return n - 1;
-			});
-		}
+		if (!$order[id]) return;
+		$order[id] = counter - 1;
 	};
 </script>
 
