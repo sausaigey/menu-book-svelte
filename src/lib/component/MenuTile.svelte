@@ -1,37 +1,76 @@
 <script lang="ts">
-	/**TODO: 3. Import MenuPrice */
+	import { coffeeCounter, pizzaCounter, saladCounter, wineCounter } from '$lib/store/order';
 	import MenuPrice from './MenuPrice.svelte';
+
+	export let id: string;
 	export let name: string;
 	export let description: string;
 	export let photoUrl: string;
 	export let prices: { label: string; price: number }[];
+
+	$: counter =
+		id === 'salad'
+			? $saladCounter
+			: id === 'pizza'
+				? $pizzaCounter
+				: id === 'wine'
+					? $wineCounter
+					: id === 'coffee'
+						? $coffeeCounter
+						: 0;
+
+	const add = () => {
+		if (id === 'salad') {
+			saladCounter.update((n) => n + 1);
+		} else if (id === 'pizza') {
+			pizzaCounter.update((n) => n + 1);
+		} else if (id === 'wine') {
+			wineCounter.update((n) => n + 1);
+		} else if (id === 'coffee') {
+			coffeeCounter.update((n) => n + 1);
+		}
+	};
+
+	const substract = () => {
+		if (id === 'salad') {
+			saladCounter.update((n) => {
+				if (n <= 0) return n;
+				return n - 1;
+			});
+		} else if (id === 'pizza') {
+			pizzaCounter.update((n) => {
+				if (n <= 0) return n;
+				return n - 1;
+			});
+		} else if (id === 'wine') {
+			wineCounter.update((n) => {
+				if (n <= 0) return n;
+				return n - 1;
+			});
+		} else if (id === 'coffee') {
+			coffeeCounter.update((n) => {
+				if (n <= 0) return n;
+				return n - 1;
+			});
+		}
+	};
 </script>
 
 <div class="menu-tile">
 	<div class="menu-photo">
 		<img src={photoUrl} alt={name} />
 	</div>
-	<div class="menu-tile-name">{name}</div>
+	<div class="menu-tile-name">{name} ({counter})</div>
 	<div class="menu-tile-description">
 		{description}
 	</div>
-	<!--TODO: 4. Use each to render MenuPrice 
-		https://learn.svelte.dev/tutorial/each-blocks -->
 
-	<div>
-		{#each prices as prices}
-			<MenuPrice label={prices.label} price={prices.price} />
-		{/each}
-	</div>
+	{#each prices as p}
+		<MenuPrice label={p.label} price={p.price} />
+	{/each}
 
-	<!-- <div class="menu-price-row">
-      <span class="price-description"></span>
-      <span>35</span>
-    </div>
-    <div class="menu-price-row">
-      <span class="price-description">+ Grilled Salmon</span>
-      <span>55</span>
-    </div> -->
+	<button class="add" on:click={add}> Tambah </button>
+	<button class="substract" on:click={substract}> Kurang </button>
 </div>
 
 <style>
@@ -63,5 +102,23 @@
 		padding: 0px 16px;
 		height: 60px;
 		padding-bottom: 16px;
+	}
+
+	button {
+		padding: 8px 16px;
+		border: none;
+	}
+
+	button.add {
+		background-color: #f44336;
+		color: white;
+		margin-bottom: 8px;
+		margin-top: 16px;
+	}
+
+	button.substract {
+		border: 1px solid #f44336;
+		color: #f44336;
+		background-color: white;
 	}
 </style>
