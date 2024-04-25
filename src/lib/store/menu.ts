@@ -10,16 +10,19 @@ export const menus = writable([
 			'Home-grown vegetables with loads of avocado, topped with mouthwatering pesto salad',
 		prices: [
 			{
+				id: 'default',
 				label: '',
 				price: 35
 			},
 			{
+				id: 'salmon',
 				label: '+ Grilled Salmon',
 				price: 55
 			}
 		]
 	},
 	{
+		
 		id: 'pizza',
 		photoUrl:
 			'https://www.recipetineats.com/wp-content/uploads/2023/05/Garlic-cheese-pizza_9.jpg',
@@ -27,10 +30,12 @@ export const menus = writable([
 		description: 'Indulge yourself in this simple yet delicious delicacy',
 		prices: [
 			{
+				id: 'default',
 				label: '1 slide',
 				price: 15
 			},
 			{
+				id: 'pan',
 				label: 'Pan (6 slices)',
 				price: 60
 			}
@@ -44,10 +49,12 @@ export const menus = writable([
 		description: 'A great meal becomes perfect when combined with a good wine',
 		prices: [
 			{
+				id: 'glass',
 				label: 'Glass',
 				price: 100
 			},
 			{
+				id: 'bottle',
 				label: 'Bottle',
 				price: 1500
 			}
@@ -61,10 +68,12 @@ export const menus = writable([
 		description: 'The best coffee you can have from the land of Indonesia',
 		prices: [
 			{
+				id: 'americano',
 				label: 'Americano',
 				price: 25
 			},
 			{
+				id: 'latte',
 				label: 'Latte',
 				price: 30
 			}
